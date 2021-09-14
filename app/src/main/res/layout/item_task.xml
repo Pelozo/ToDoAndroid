@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="viewmodel" type="net.pelozo.mytasks.ui.tasks.list.TaskListViewmodel"/>
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/cv_root"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Title!"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_done"
+            app:layout_constraintEnd_toStartOf="@id/tv_date"
+            android:layout_marginLeft="8dp"
+            android:gravity="center_vertical"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:text="A description \n multiline? idk"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_done"
+            app:layout_constraintEnd_toStartOf="@id/tv_date"
+            android:layout_marginLeft="8dp"
+            android:gravity="center_vertical"
+            android:textSize="14sp"/>
+
+
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="02-02-2025"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="end"
+            android:textSize="18sp"
+            android:paddingLeft="6dp"
+            android:paddingRight="14dp"/>
+
+
+        <ImageView
+            android:id="@+id/iv_done"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:srcCompat="@drawable/fui_ic_check_circle_black_128dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+</layout>

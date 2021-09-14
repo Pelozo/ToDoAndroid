@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">My Tasks</string>
+    <string name="title_activity_task_list">TaskListActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="error_signing_up">Error signing up!</string>
+    <string name="add_task">Add task</string>
+    <string name="my_tasks">My tasks</string>
+    <string name="details">Details</string>
+
+
+    <string name="default_notification_channel_id">uw0tm8</string>
+
+    <string name="delete_task_confirmation">Are you sure you want to remove \"%1$s\"?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="task_removed">Task removed!</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="no_tasks">No tasks :(</string>
+    <string name="error_removing_task">Error removing task</string>
+    <string name="logout">Log out</string>
+</resources>
