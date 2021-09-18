@@ -30,6 +30,10 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 import com.google.android.gms.ads.MobileAds
 
+
+
+
+
 class MainActivity : AppCompatActivity() {
 
     private val viewmodel: MainViewmodel by viewModel()
@@ -48,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         binding.viewmodel = viewmodel
 
         handleEvents()
+        subscribeToGlobalTopic()
         viewmodel.checkIfLogged()
 
     }
@@ -70,6 +75,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun subscribeToGlobalTopic(){
+        Firebase.messaging.subscribeToTopic("global")
+            .addOnCompleteListener { task ->
+                println("subscribed! + $task")
+            }
+    }
 
 }
 
