@@ -78,11 +78,18 @@ class TaskListFragment : Fragment(), TaskAdapter.TaskListener {
             }
         }
 
-        //clicks on toolbar
+      //clicks on toolbar
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.logout -> {
                     viewmodel.onLogoutClicked()
+                    true
+                }
+                R.id.crash -> {
+                    //null variable
+                    val myNumber: Int? = null // Int myNumber = null
+                    //trying to add 1 to a null
+                    myNumber!!.plus(1) // myNumber + 1
                     true
                 }
                 else -> false
