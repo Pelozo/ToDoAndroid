@@ -54,7 +54,9 @@ class TaskListFragment : Fragment(), TaskAdapter.TaskListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initializeAd()
         handleEvents()
+
 
         lifecycleScope.launch {
             viewmodel.tasks.collect {
@@ -78,7 +80,7 @@ class TaskListFragment : Fragment(), TaskAdapter.TaskListener {
             }
         }
 
-      //clicks on toolbar
+        //clicks on toolbar
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.logout -> {
@@ -97,6 +99,19 @@ class TaskListFragment : Fragment(), TaskAdapter.TaskListener {
         }
     }
 
+    private fun initializeAd(){
+        context?.let{
+            MobileAds.initialize(it)
+            val adView = binding.adView
+            adView.adListener = object: AdListener(){
+                override fun onAdLoaded(){
+                    adView.visibility = View.VISIBLE
+                }
+            }
+            val adRequest = AdRequest.Builder().build()
+            adView.loadAd(adRequest)
+        }
+    }
 
     override fun onTaskClicked(id: Task) {
         viewmodel.onTaskClicked(id)
