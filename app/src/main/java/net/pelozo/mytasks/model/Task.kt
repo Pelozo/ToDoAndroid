@@ -11,6 +11,7 @@ data class Task(
     val title: String = "",
     val description: String = "",
     val email: String = "",
+    val image: String? = null,
     @field:JvmField val isDone: Boolean = false
 ){
     fun withId(id: String): Task {

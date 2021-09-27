@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import net.pelozo.mytasks.R
 import net.pelozo.mytasks.model.Task
+import net.pelozo.mytasks.util.glideload
 import net.pelozo.mytasks.util.toDateString
 
 
@@ -47,7 +49,19 @@ class TaskAdapter(private var items: List<Task>, private val listener: TaskListe
 
             itemView.findViewById<TextView>(R.id.tv_title).text = task.title
             itemView.findViewById<TextView>(R.id.tv_description).text = task.description
-            itemView.findViewById<TextView>(R.id.tv_date).text = task.createAt?.toDateString()//.toDateString()
+            itemView.findViewById<TextView>(R.id.tv_date).text = task.createAt?.toDateString()
+
+
+            with(itemView.findViewById<ImageView>(R.id.image)){
+                if (task.image != null)
+                    this.glideload(task.image)
+                else
+                    this.visibility = View.INVISIBLE
+            }
+
+
+
+
             task.isDone.let{
                 if(it){
                     itemView.findViewById<ImageView>(R.id.iv_done).setColorFilter(itemView.findViewById<ImageView>(R.id.iv_done).context.getColor(R.color.primary))
